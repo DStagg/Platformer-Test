@@ -178,6 +178,7 @@ void Level::Update(float dt)
 		}
 	}
 	
+	//	TODO: work out why the player is being accelerated off of the side of walls
 	//	Collide
 	if (_Player._Velocity._X != 0.f)
 	{

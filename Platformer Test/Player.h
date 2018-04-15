@@ -18,6 +18,8 @@
 #define PlayerYAccel 100.f
 #define PlayerMaxYVel 100.f
 
+#define PlayerJumpVel 200.f
+
 class Player : public Entity
 {
 public:

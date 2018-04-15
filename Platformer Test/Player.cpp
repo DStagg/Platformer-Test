@@ -38,7 +38,8 @@ void Player::Input(float dt)
 	}
 
 	//	Jump
-	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (_Velocity._Y == 0.f))
+		_Velocity._Y = -PlayerJumpVel;
 
 	//	Fall
 	if (_Velocity._Y > PlayerMaxYVel)
