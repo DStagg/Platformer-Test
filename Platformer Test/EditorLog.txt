@@ -341,6 +341,6 @@ Cell [19,13]: 3,1 & solid.
 Cell [19,14]: 3,1 & solid.
 Cell [19,15]: 3,1 & solid.
 Cell [19,16]: 5,1 & solid.
-Player starts at (359,197)
+Player starts at (554,133)
 Level loaded.
 Log dumped to: EditorLog.txt

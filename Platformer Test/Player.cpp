@@ -12,6 +12,8 @@ Player::~Player()
 
 void Player::Input(float dt)
 {
+	//	Alt. mode of acceleration: vector2f curSpeed = a * targetSpeed + (1-a) * curSpeed;
+
 	//	Move Left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
@@ -36,8 +38,13 @@ void Player::Input(float dt)
 	}
 
 	//	Jump
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (_Velocity._Y == 0.f))
+	if (_JumpFrames < PlayerJumpFrameLimit)
+		_JumpFrames += dt;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (_JumpFrames <= PlayerJumpFrameLimit))
+	{
 		_Velocity._Y = -PlayerJumpVel;
+		_JumpFrames = PlayerJumpFrameLimit + 0.1f;
+	}
 
 	//	Fall
 	if (_Velocity._Y > PlayerMaxYVel)
@@ -62,4 +69,9 @@ void Player::Draw(sf::RenderWindow* rw)
 AABBMask Player::GetMask()
 {
 	return AABBMask(AABB(_Position.GetX(), _Position.GetY(), PlayerWidth, PlayerHeight));
+};
+
+void Player::Land()
+{
+	_JumpFrames = 0.f;
 };

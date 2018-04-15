@@ -179,6 +179,7 @@ void Level::Update(float dt)
 	}
 	
 	//	Collide
+	//	Based on: http://higherorderfun.com/blog/2012/05/20/the-guide-to-implementing-2d-platformers/
 	if (_Player._Velocity._X != 0.f)
 	{
 		int nearX = CalcCol(_Player._Velocity._X < 0.f ? (float)_Player.GetMask()._Mask.Left() : (float)_Player.GetMask()._Mask.Right());
@@ -241,11 +242,15 @@ void Level::Update(float dt)
 		}
 
 		if (colY)
+		{
+			if (_Player._Velocity._Y > 0.f)
+				_Player.Land();
 			_Player._Velocity._Y = 0.f;
+		}
 		else
 			_Player.UpdatePos(dt);
 	}
-	
+
 	//Log("Vel: (" + FloatToString(_Player._Velocity._X) + "," + FloatToString(_Player._Velocity._Y) + ")");
 	/*
 	CollisionResults pres = WallCollision(_Player.GetMask());

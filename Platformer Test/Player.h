@@ -19,6 +19,7 @@
 #define PlayerMaxYVel 100.f
 
 #define PlayerJumpVel 200.f
+#define PlayerJumpFrameLimit 0.1f
 
 class Player : public Entity
 {
@@ -33,7 +34,11 @@ public:
 
 	AABBMask GetMask();
 
+	void Land();
+
 private:
+
+	float _JumpFrames = 0.f;
 
 };
 
