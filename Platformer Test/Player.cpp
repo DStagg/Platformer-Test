@@ -1,5 +1,27 @@
 #include "Player.h"
 
+PhysStats::PhysStats()
+{
+	_XAccel = PlayerXAccel;
+	_MaxXVel = PlayerMaxXVel;
+	_XDecel = PlayerXDecel;
+	_YAccel = PlayerYAccel;
+	_MaxYVel = PlayerMaxYVel;
+	_JumpVel = PlayerJumpVel;
+	_JumpTimeLimit = PlayerJumpFrameLimit;
+};
+
+PhysStats::PhysStats(float xaccel, float maxxvel, float xdecel, float yaccel, float maxyvel, float jumpvel, float jumplimit)
+{
+	_XAccel = xaccel;
+	_MaxXVel = maxxvel;
+	_XDecel = xdecel;
+	_YAccel = yaccel;
+	_MaxYVel = maxyvel;
+	_JumpVel = jumpvel;
+	_JumpTimeLimit = jumplimit;
+};
+
 Player::Player()
 {
 	_Size = PairInt(32, 32);
@@ -17,40 +39,40 @@ void Player::Input(float dt)
 	//	Move Left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		_Velocity._X -= PlayerXAccel * dt;
-		if (Absolute(_Velocity._X) > PlayerMaxXVel)
-			_Velocity._X = -PlayerMaxXVel;
+		_Velocity._X -= _PhysStats._MaxXVel * dt;
+		if (Absolute(_Velocity._X) > _PhysStats._MaxXVel)
+			_Velocity._X = -_PhysStats._MaxXVel;
 	}
 	//	Move Right
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		_Velocity._X += PlayerXAccel * dt;
-		if (Absolute(_Velocity._X) > PlayerMaxXVel)
-			_Velocity._X = PlayerMaxXVel;
+		_Velocity._X += _PhysStats._MaxXVel * dt;
+		if (Absolute(_Velocity._X) > _PhysStats._MaxXVel)
+			_Velocity._X = _PhysStats._MaxXVel;
 	}
 	//	Slow to a stop
 	else if (_Velocity._X != 0.f)
 	{
-		if (Absolute(_Velocity._X) < PlayerXDecel * dt)
+		if (Absolute(_Velocity._X) < _PhysStats._XDecel * dt)
 			_Velocity._X = 0.f;
 		else
-			_Velocity._X -= Sign(_Velocity._X) * PlayerXDecel * dt;
+			_Velocity._X -= Sign(_Velocity._X) * _PhysStats._XDecel * dt;
 	}
 
 	//	Jump
-	if (_JumpFrames < PlayerJumpFrameLimit)
+	if (_JumpFrames < _PhysStats._JumpTimeLimit)
 		_JumpFrames += dt;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (_JumpFrames <= PlayerJumpFrameLimit))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Space) && (_JumpFrames <= _PhysStats._JumpTimeLimit))
 	{
-		_Velocity._Y = -PlayerJumpVel;
-		_JumpFrames = PlayerJumpFrameLimit + 0.1f;
+		_Velocity._Y = -_PhysStats._JumpVel;
+		_JumpFrames = _PhysStats._JumpTimeLimit + 0.1f;
 	}
 
 	//	Fall
-	if (_Velocity._Y > PlayerMaxYVel)
-		_Velocity._Y = PlayerMaxYVel;
+	if (_Velocity._Y > _PhysStats._MaxYVel)
+		_Velocity._Y = _PhysStats._MaxYVel;
 	else
-		_Velocity._Y += PlayerYAccel * dt;
+		_Velocity._Y += _PhysStats._YAccel * dt;
 	
 };
 

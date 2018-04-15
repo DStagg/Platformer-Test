@@ -21,6 +21,13 @@
 #define PlayerJumpVel 200.f
 #define PlayerJumpFrameLimit 0.1f
 
+struct PhysStats
+{
+	PhysStats();
+	PhysStats(float xaccel, float maxxvel, float xdecel, float yaccel, float maxyvel, float jumpvel, float jumplimit);
+	float _XAccel, _MaxXVel, _XDecel, _YAccel, _MaxYVel, _JumpVel, _JumpTimeLimit;
+};
+
 class Player : public Entity
 {
 public:
@@ -35,6 +42,8 @@ public:
 	AABBMask GetMask();
 
 	void Land();
+
+	PhysStats _PhysStats;
 
 private:
 
