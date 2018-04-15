@@ -15,18 +15,16 @@ void Player::Input(float dt)
 	//	Move Left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
+		_Velocity._X -= PlayerXAccel * dt;
 		if (Absolute(_Velocity._X) > PlayerMaxXVel)
 			_Velocity._X = -PlayerMaxXVel;
-		else
-			_Velocity._X -= PlayerXAccel * dt;
 	}
 	//	Move Right
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
+		_Velocity._X += PlayerXAccel * dt;
 		if (Absolute(_Velocity._X) > PlayerMaxXVel)
 			_Velocity._X = PlayerMaxXVel;
-		else
-			_Velocity._X += PlayerXAccel * dt;
 	}
 	//	Slow to a stop
 	else if (_Velocity._X != 0.f)

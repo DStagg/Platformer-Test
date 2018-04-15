@@ -178,7 +178,6 @@ void Level::Update(float dt)
 		}
 	}
 	
-	//	TODO: work out why the player is being accelerated off of the side of walls
 	//	Collide
 	if (_Player._Velocity._X != 0.f)
 	{
@@ -246,6 +245,8 @@ void Level::Update(float dt)
 		else
 			_Player.UpdatePos(dt);
 	}
+	
+	//Log("Vel: (" + FloatToString(_Player._Velocity._X) + "," + FloatToString(_Player._Velocity._Y) + ")");
 	/*
 	CollisionResults pres = WallCollision(_Player.GetMask());
 	if (pres._Collided)
