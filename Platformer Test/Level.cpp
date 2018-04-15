@@ -151,10 +151,20 @@ CollisionResults Level::WallCollision(CircleMask mask)
 	return CollisionResults(false, Vec());
 };
 
+CollisionResults Level::WallCollisionX(AABBMask mask, float xvel, float dt)
+{
+	return CollisionResults(false, Vec());
+};
+
+CollisionResults Level::WallCollisionY(AABBMask mask, float yvel, float dt)
+{
+	return CollisionResults(false, Vec());
+};
+
 void Level::Update(float dt)
 {
 	//	Input
-	_Player.Input();
+	_Player.Input(dt);
 
 	//	Impulses
 	for (int i = 0; i < (int)_Impulses.size(); i++)
@@ -167,17 +177,84 @@ void Level::Update(float dt)
 			i--;
 		}
 	}
-
+	
 	//	Collide
+	if (_Player._Velocity._X != 0.f)
+	{
+		int nearX = CalcCol(_Player._Velocity._X < 0.f ? (float)_Player.GetMask()._Mask.Left() : (float)_Player.GetMask()._Mask.Right());
+		int farX = CalcCol(_Player._Velocity._X < 0.f ? (float)_Player.GetMask()._Mask.Left() + (_Player._Velocity._X * dt) - 1 : (float)_Player.GetMask()._Mask.Right() + (_Player._Velocity._X * dt) + 1);
+		int topY = CalcRow((float)_Player.GetMask()._Mask.Top());
+		int bottomY = CalcRow((float)_Player.GetMask()._Mask.Bottom());
+
+		bool colX = false;
+
+		for (int x = nearX; x != farX + Sign(_Player._Velocity._X); x += Sign(_Player._Velocity._X))
+		{
+			if (colX)
+				break;
+
+			for (int y = topY; y <= bottomY; y++)
+			{
+				if (GetGrid().GetCell(x, y)._Solid)
+				{
+					_Player._Position.SetX(_Player._Velocity._X < 0.f ?
+						(x + 1) * _TileWidth :
+						(x * _TileWidth) - _Player.GetMask()._Mask._Width);
+
+					colX = true;
+					break;
+				}
+			}
+		}
+
+		if (colX)
+			_Player._Velocity._X = 0.f;
+		else
+			_Player.UpdatePos(dt);
+	}
+
+	if (_Player._Velocity._Y != 0.f)
+	{
+		int nearY = CalcRow(_Player._Velocity._Y < 0.f ? (float)_Player.GetMask()._Mask.Top() : (float)_Player.GetMask()._Mask.Bottom());
+		int farY = CalcRow(_Player._Velocity._Y < 0.f ? (float)_Player.GetMask()._Mask.Top() + (_Player._Velocity._Y * dt) - 1 : (float)_Player.GetMask()._Mask.Bottom() + (_Player._Velocity._Y * dt) + 1);
+		int leftX = CalcCol((float)_Player.GetMask()._Mask.Left());
+		int rightX = CalcCol((float)_Player.GetMask()._Mask.Right());
+
+		bool colY = false;
+
+		for (int y = nearY; y != farY + Sign(_Player._Velocity._Y); y += Sign(_Player._Velocity._Y))
+		{
+			if (colY)
+				break;
+
+			for (int x = leftX; x <= rightX; x++)
+			{
+				if (GetGrid().GetCell(x, y)._Solid)
+				{
+					_Player._Position.SetY(_Player._Velocity._Y < 0.f ?
+						(y + 1) * _TileHeight :
+						(y * _TileHeight) - _Player.GetMask()._Mask._Height);
+					colY = true;
+					break;
+				}
+			}
+		}
+
+		if (colY)
+			_Player._Velocity._Y = 0.f;
+		else
+			_Player.UpdatePos(dt);
+	}
+	/*
 	CollisionResults pres = WallCollision(_Player.GetMask());
 	if (pres._Collided)
 	{
 		_Player._Velocity = Vec(0.f, 0.f);
 		_Player._Position += pres._Overlap;
 	}
-	
+	*/
 	//	Update Position/etc.
-	_Player.Update(dt);
+//	_Player.Update(dt);
 
 	//	Resolve/Cull
 

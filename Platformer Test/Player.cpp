@@ -10,20 +10,40 @@ Player::~Player()
 
 };
 
-void Player::Input()
+void Player::Input(float dt)
 {
+	//	Move Left
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+	{
+		if (Absolute(_Velocity._X) > PlayerMaxXVel)
+			_Velocity._X = -PlayerMaxXVel;
+		else
+			_Velocity._X -= PlayerXAccel * dt;
+	}
+	//	Move Right
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+	{
+		if (Absolute(_Velocity._X) > PlayerMaxXVel)
+			_Velocity._X = PlayerMaxXVel;
+		else
+			_Velocity._X += PlayerXAccel * dt;
+	}
+	//	Slow to a stop
+	else if (_Velocity._X != 0.f)
+	{
+		if (Absolute(_Velocity._X) < PlayerXDecel * dt)
+			_Velocity._X = 0.f;
+		else
+			_Velocity._X -= Sign(_Velocity._X) * PlayerXDecel * dt;
+	}
+
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		_Velocity._Y = -100.f;
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 		_Velocity._Y = 100.f;
 	else
 		_Velocity._Y = 0.f;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-		_Velocity._X = -100.f;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-		_Velocity._X = 100.f;
-	else
-		_Velocity._X = 0.f;
 };
 
 void Player::Update(float dt) 

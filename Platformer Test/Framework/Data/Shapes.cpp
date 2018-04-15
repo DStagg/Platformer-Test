@@ -57,7 +57,7 @@ int AABB::Top()
 };
 int AABB::Bottom()
 {
-	return _Y + _Height - 1;
+	return (int)floor(_Y + _Height - 1);
 };
 int AABB::Left()
 {
@@ -65,7 +65,7 @@ int AABB::Left()
 };
 int AABB::Right()
 {
-	return _X + _Width - 1;
+	return (int)floor(_X + _Width - 1);
 };
 
 bool AABB::Contains(int x, int y)

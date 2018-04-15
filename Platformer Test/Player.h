@@ -11,6 +11,10 @@
 #define PlayerWidth 32
 #define PlayerHeight 32
 
+#define PlayerXAccel 75.f
+#define PlayerMaxXVel 100.f
+#define PlayerXDecel 75.f
+
 class Player : public Entity
 {
 public:
@@ -18,7 +22,7 @@ public:
 	Player();
 	~Player();
 
-	void Input();
+	void Input(float dt);
 	void Update(float dt);
 	void Draw(sf::RenderWindow* rw);
 

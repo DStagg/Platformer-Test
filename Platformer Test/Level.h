@@ -48,8 +48,8 @@ public:
 	//	TODO: May also help to get wall collision working better by checkng each axis one at a time, etc.
 	CollisionResults WallCollision(AABBMask mask);
 	CollisionResults WallCollision(CircleMask mask);
-	//CollisionResults WallCollisionX(AABBMask mask);
-	//CollisionResults WallCollisionY(AABBMask mask);
+	CollisionResults WallCollisionX(AABBMask mask, float xvel, float dt);
+	CollisionResults WallCollisionY(AABBMask mask, float yvel, float dt);
 
 	void Update(float dt);
 	void Draw(sf::RenderWindow* rw);
