@@ -39,14 +39,14 @@ void Player::Input(float dt)
 	//	Move Left
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		_Velocity._X -= _PhysStats._MaxXVel * dt;
+		_Velocity._X -= _PhysStats._XAccel * dt;
 		if (Absolute(_Velocity._X) > _PhysStats._MaxXVel)
 			_Velocity._X = -_PhysStats._MaxXVel;
 	}
 	//	Move Right
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		_Velocity._X += _PhysStats._MaxXVel * dt;
+		_Velocity._X += _PhysStats._XAccel * dt;
 		if (Absolute(_Velocity._X) > _PhysStats._MaxXVel)
 			_Velocity._X = _PhysStats._MaxXVel;
 	}

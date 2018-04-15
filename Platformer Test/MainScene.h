@@ -43,6 +43,18 @@ private:
 	bool _DrawLog;
 
 	Level _Level;
+
+	int _EditMode = 0;
+	enum PhysEditMode
+	{
+		XACCEL = 0,
+		XMAX,
+		XDECEL,
+		GRAVITY,
+		YMAX,
+		JUMPVEL,
+		JUMPTIME
+	};
 };
 
 #endif

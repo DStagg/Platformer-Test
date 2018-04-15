@@ -131,7 +131,7 @@ void EditorScene::Update(float dt)
 			switch (Event.key.code)
 			{
 			case sf::Keyboard::Escape:
-				GetManager()->Quit();
+				GetManager()->Quit(1);
 				break;
 			case sf::Keyboard::F1:
 				_ShowLog = !_ShowLog;
