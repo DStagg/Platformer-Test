@@ -37,13 +37,15 @@ void Player::Input(float dt)
 			_Velocity._X -= Sign(_Velocity._X) * PlayerXDecel * dt;
 	}
 
+	//	Jump
+	
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-		_Velocity._Y = -100.f;
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-		_Velocity._Y = 100.f;
+	//	Fall
+	if (_Velocity._Y > PlayerMaxYVel)
+		_Velocity._Y = PlayerMaxYVel;
 	else
-		_Velocity._Y = 0.f;
+		_Velocity._Y += PlayerYAccel * dt;
+	
 };
 
 void Player::Update(float dt) 

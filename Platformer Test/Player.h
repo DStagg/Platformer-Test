@@ -15,6 +15,9 @@
 #define PlayerMaxXVel 100.f
 #define PlayerXDecel 75.f
 
+#define PlayerYAccel 100.f
+#define PlayerMaxYVel 100.f
+
 class Player : public Entity
 {
 public:
