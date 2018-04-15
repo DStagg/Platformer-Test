@@ -118,40 +118,66 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Framework\Data\AABB.cpp" />
-    <ClCompile Include="Framework\Data\Grid.cpp" />
+    <ClCompile Include="EditorScene.cpp" />
+    <ClCompile Include="Framework\Data\Collision.cpp" />
+    <ClCompile Include="Framework\Data\CompositeTex.cpp" />
+    <ClCompile Include="Framework\Data\Pair.cpp" />
+    <ClCompile Include="Framework\Data\SAT.cpp" />
+    <ClCompile Include="Framework\Data\Shapes.cpp" />
+    <ClCompile Include="Framework\Data\Trig.cpp" />
+    <ClCompile Include="Framework\Debug\Console.cpp" />
+    <ClCompile Include="Framework\Debug\DebugDraw.cpp" />
     <ClCompile Include="Framework\Entities\Entity.cpp" />
-    <ClCompile Include="Framework\Entities\EntityComponents.cpp" />
     <ClCompile Include="Framework\IO\AudioService.cpp" />
     <ClCompile Include="Framework\IO\BinaryFile.cpp" />
-    <ClCompile Include="Framework\IO\BinarySave.cpp" />
     <ClCompile Include="Framework\IO\GUI.cpp" />
     <ClCompile Include="Framework\IO\ImageManager.cpp" />
     <ClCompile Include="Framework\IO\MenuList.cpp" />
+    <ClCompile Include="Framework\IO\MouseInput.cpp" />
     <ClCompile Include="Framework\IO\Service.cpp" />
-    <ClCompile Include="Framework\Scene.cpp" />
+    <ClCompile Include="Framework\IO\TextFile.cpp" />
+    <ClCompile Include="Framework\Scenes\Scene.cpp" />
+    <ClCompile Include="Framework\SFMLScene.cpp" />
     <ClCompile Include="Framework\Utility\Random.cpp" />
     <ClCompile Include="Framework\Utility\Utility.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SceneTransitions.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Framework\Data\AABB.h" />
+    <ClInclude Include="EditorScene.h" />
+    <ClInclude Include="Framework\Data\Collision.h" />
+    <ClInclude Include="Framework\Data\CompositeTex.h" />
     <ClInclude Include="Framework\Data\Grid.h" />
+    <ClInclude Include="Framework\Data\Maths.h" />
     <ClInclude Include="Framework\Data\Pair.h" />
+    <ClInclude Include="Framework\Data\SAT.h" />
+    <ClInclude Include="Framework\Data\Shapes.h" />
+    <ClInclude Include="Framework\Data\Trig.h" />
+    <ClInclude Include="Framework\Debug\Console.h" />
+    <ClInclude Include="Framework\Debug\DebugDraw.h" />
     <ClInclude Include="Framework\Entities\Entity.h" />
-    <ClInclude Include="Framework\Entities\EntityComponents.h" />
     <ClInclude Include="Framework\IO\AudioService.h" />
+    <ClInclude Include="Framework\IO\BaseFile.h" />
     <ClInclude Include="Framework\IO\BinaryFile.h" />
-    <ClInclude Include="Framework\IO\BinarySave.h" />
     <ClInclude Include="Framework\IO\GUI.h" />
     <ClInclude Include="Framework\IO\ImageManager.h" />
     <ClInclude Include="Framework\IO\MenuList.h" />
+    <ClInclude Include="Framework\IO\MouseInput.h" />
     <ClInclude Include="Framework\IO\Service.h" />
-    <ClInclude Include="Framework\Scene.h" />
+    <ClInclude Include="Framework\IO\TextFile.h" />
+    <ClInclude Include="Framework\Scenes\Scene.h" />
+    <ClInclude Include="Framework\SFMLScene.h" />
     <ClInclude Include="Framework\Utility\Random.h" />
     <ClInclude Include="Framework\Utility\Utility.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="MainScene.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="SceneTransitions.h" />
+    <ClInclude Include="TitleScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

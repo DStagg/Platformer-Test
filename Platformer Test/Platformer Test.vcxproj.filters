@@ -21,30 +21,48 @@
     <Filter Include="Framework\IO">
       <UniqueIdentifier>{5012e7e2-b5d5-407b-8fdc-2cc32ceb7019}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\Debug">
+      <UniqueIdentifier>{ab0a100e-7bbc-4924-a36c-2644f1593e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\Scenes">
+      <UniqueIdentifier>{02277b4c-9d5a-4f6b-a32b-bd1bfa396c1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{3a2d2690-2be2-4091-951b-2d56b78dabef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Scene.cpp">
-      <Filter>Framework</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Data\AABB.cpp">
+    <ClCompile Include="Framework\Data\Collision.cpp">
       <Filter>Framework\Data</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Data\Grid.cpp">
+    <ClCompile Include="Framework\Data\CompositeTex.cpp">
       <Filter>Framework\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Data\Pair.cpp">
+      <Filter>Framework\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Data\SAT.cpp">
+      <Filter>Framework\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Data\Shapes.cpp">
+      <Filter>Framework\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Data\Trig.cpp">
+      <Filter>Framework\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Debug\Console.cpp">
+      <Filter>Framework\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Debug\DebugDraw.cpp">
+      <Filter>Framework\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Entities\Entity.cpp">
+      <Filter>Framework\Entities</Filter>
     </ClCompile>
     <ClCompile Include="Framework\IO\AudioService.cpp">
       <Filter>Framework\IO</Filter>
     </ClCompile>
     <ClCompile Include="Framework\IO\BinaryFile.cpp">
-      <Filter>Framework\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\IO\BinarySave.cpp">
       <Filter>Framework\IO</Filter>
     </ClCompile>
     <ClCompile Include="Framework\IO\GUI.cpp">
@@ -56,14 +74,14 @@
     <ClCompile Include="Framework\IO\MenuList.cpp">
       <Filter>Framework\IO</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\IO\MouseInput.cpp">
+      <Filter>Framework\IO</Filter>
+    </ClCompile>
     <ClCompile Include="Framework\IO\Service.cpp">
       <Filter>Framework\IO</Filter>
     </ClCompile>
-    <ClCompile Include="Framework\Entities\Entity.cpp">
-      <Filter>Framework\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Framework\Entities\EntityComponents.cpp">
-      <Filter>Framework\Entities</Filter>
+    <ClCompile Include="Framework\IO\TextFile.cpp">
+      <Filter>Framework\IO</Filter>
     </ClCompile>
     <ClCompile Include="Framework\Utility\Random.cpp">
       <Filter>Framework\Utility</Filter>
@@ -71,30 +89,75 @@
     <ClCompile Include="Framework\Utility\Utility.cpp">
       <Filter>Framework\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Framework\Scenes\Scene.cpp">
+      <Filter>Framework\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\SFMLScene.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTransitions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainScene.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Framework\Data\Collision.h">
+      <Filter>Framework\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Scene.h">
-      <Filter>Framework</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Data\AABB.h">
+    <ClInclude Include="Framework\Data\CompositeTex.h">
       <Filter>Framework\Data</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Data\Grid.h">
       <Filter>Framework\Data</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Data\Maths.h">
+      <Filter>Framework\Data</Filter>
+    </ClInclude>
     <ClInclude Include="Framework\Data\Pair.h">
       <Filter>Framework\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Data\SAT.h">
+      <Filter>Framework\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Data\Shapes.h">
+      <Filter>Framework\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Data\Trig.h">
+      <Filter>Framework\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Debug\Console.h">
+      <Filter>Framework\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Debug\DebugDraw.h">
+      <Filter>Framework\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Entities\Entity.h">
+      <Filter>Framework\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Framework\IO\AudioService.h">
       <Filter>Framework\IO</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\IO\BinaryFile.h">
+    <ClInclude Include="Framework\IO\BaseFile.h">
       <Filter>Framework\IO</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\IO\BinarySave.h">
+    <ClInclude Include="Framework\IO\BinaryFile.h">
       <Filter>Framework\IO</Filter>
     </ClInclude>
     <ClInclude Include="Framework\IO\GUI.h">
@@ -106,20 +169,44 @@
     <ClInclude Include="Framework\IO\MenuList.h">
       <Filter>Framework\IO</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\IO\MouseInput.h">
+      <Filter>Framework\IO</Filter>
+    </ClInclude>
     <ClInclude Include="Framework\IO\Service.h">
       <Filter>Framework\IO</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Entities\Entity.h">
-      <Filter>Framework\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Framework\Entities\EntityComponents.h">
-      <Filter>Framework\Entities</Filter>
+    <ClInclude Include="Framework\IO\TextFile.h">
+      <Filter>Framework\IO</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utility\Random.h">
       <Filter>Framework\Utility</Filter>
     </ClInclude>
     <ClInclude Include="Framework\Utility\Utility.h">
       <Filter>Framework\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Scenes\Scene.h">
+      <Filter>Framework\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\SFMLScene.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTransitions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorScene.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Source Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
